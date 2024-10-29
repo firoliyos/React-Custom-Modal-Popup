@@ -7,11 +7,14 @@ export default function ModalTest() {
     function handlePopup() {
         setShowModalPopup(!showModalPopup)
     }
+    function onClose() {
+        setShowModalPopup(false) 
+    }
    return(
     <div>
-      <button onClick={handlePopup} >Open Modal Popup</button> 
+      <button style={{cursor: 'pointer'}} onClick={handlePopup} >Open Modal Popup</button> 
       {
-         showModalPopup && <Modal body={<div>Customized Body</div>} />
+         showModalPopup && <Modal onClose={onClose} body={<div>Customized Body</div>} />
       } 
     </div>
    )
